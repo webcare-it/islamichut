@@ -245,13 +245,7 @@
                                 </a>
                             </li>
                         <?php endif; ?>
-                        <?php if(Auth::user()->user_type == 'admin' || in_array('5', json_decode(Auth::user()->staff->role->permissions))): ?>
-                            <li class="aiz-side-nav-item">
-                                <a href="<?php echo e(route('seller_orders.index')); ?>" class="aiz-side-nav-link <?php echo e(areActiveRoutes(['seller_orders.index', 'seller_orders.show'])); ?>">
-                                    <span class="aiz-side-nav-text"><?php echo e(translate('Seller Orders')); ?></span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
+                        
                         
                     </ul>
                 </li>
@@ -794,11 +788,7 @@
                                 </a>
                             </li>
                             
-                            <li class="aiz-side-nav-item">
-                                <a href="<?php echo e(route('file_system.index')); ?>" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text"><?php echo e(translate('File System & Cache Configuration')); ?></span>
-                                </a>
-                            </li>
+                            
                             <li class="aiz-side-nav-item">
                                 <a href="<?php echo e(route('social_login.index')); ?>" class="aiz-side-nav-link">
                                     <span class="aiz-side-nav-text"><?php echo e(translate('Social media Logins')); ?></span>

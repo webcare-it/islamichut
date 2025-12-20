@@ -99,7 +99,7 @@
                         <?php if(get_setting('product_approve_by_admin') == 1 && $type == 'Seller'): ?>
                             <th data-breakpoints="lg"><?php echo e(translate('Approved')); ?></th>
                         <?php endif; ?>
-                        <th data-breakpoints="lg"><?php echo e(translate('New Arrival')); ?></th>
+                        <th data-breakpoints="lg"><?php echo e(translate('Featured')); ?></th>
                         <th data-breakpoints="sm" class="text-right"><?php echo e(translate('Options')); ?></th>
                     </tr>
                 </thead>
