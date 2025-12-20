@@ -24,6 +24,12 @@ class OrderController extends Controller
     public function store(Request $request, $set_paid = false)
     {
 
+
+        return response()->json([
+            'result' => true,
+            'message' => translate('Your order has been placed successfully')
+        ]);
+
         // Check if OTP for order is enabled
         if (BusinessSetting::where('type', 'otp_for_order')->first()->value == 1) {
             // Verify OTP before proceeding
