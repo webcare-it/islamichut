@@ -24,12 +24,6 @@ class OrderController extends Controller
     public function store(Request $request, $set_paid = false)
     {
 
-
-        return response()->json([
-            'result' => true,
-            'message' => translate('Your order has been placed successfully')
-        ]);
-
         // Check if OTP for order is enabled
         if (BusinessSetting::where('type', 'otp_for_order')->first()->value == 1) {
             // Verify OTP before proceeding
@@ -216,12 +210,12 @@ class OrderController extends Controller
 
             $combined_order->grand_total += $order->grand_total;
 
-            // if (strpos($request->payment_type, "manual_payment_") !== false) { // if payment type like  manual_payment_1 or  manual_payment_25 etc)
+            if (strpos($request->payment_type, "manual_payment_") !== false) { // if payment type like  manual_payment_1 or  manual_payment_25 etc)
 
-            //     $order->manual_payment = 1;
-            //     $order->save();
+                $order->manual_payment = 1;
+                $order->save();
 
-            // }
+            }
 
 
             $order->save();
