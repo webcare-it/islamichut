@@ -191,6 +191,15 @@ class OrderController extends Controller
                 $product->save();
 
                 $order->seller_id = $product->user_id;
+
+                if (addon_is_activated('affiliate_system')) {
+                    if ($order_detail->product_referral_code) {
+                        $referred_by_user = User::where('referral_code', $order_detail->product_referral_code)->first();
+
+                        $affiliateController = new AffiliateController;
+                        $affiliateController->processAffiliateStats($referred_by_user->id, 0, $order_detail->quantity, 0, 0);
+                    }
+                }
             }
 
             $order->grand_total = $subtotal + $tax + $shipping;
